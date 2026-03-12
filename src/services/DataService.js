@@ -31,18 +31,16 @@ export class DataService {
         if (!locations) return weapons;
 
         // 위치 정보 매핑 (Location Mapping Logic)
-        const dropMap = {};
-        locations.forEach(loc => {
-            loc.drop_table.forEach(name => {
-                if (!dropMap[name]) dropMap[name] = [];
-                dropMap[name].push(loc.name);
-            });
-        });
+        return weapons.map(w => {
+            const dropLocations = locations
+                .filter(loc => w.tags && w.tags.every(tag => loc.available_tags.includes(tag)))
+                .map(loc => loc.name);
 
-        return weapons.map(w => ({
-            ...w,
-            location: dropMap[w.name] ? dropMap[w.name].join(", ") : "정보 없음"
-        }));
+            return {
+                ...w,
+                location: dropLocations.length > 0 ? dropLocations.join(", ") : "정보 없음"
+            };
+        });
     }
 
     static async loadTasks() {
