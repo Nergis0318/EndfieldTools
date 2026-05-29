@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.BASE_URL;
+
 export const APP_CONFIG = {
     STORAGE_KEYS: {
         WEAPON_STATUS: 'endfield_weapon_status_v2', // 기질 보유 현황
@@ -5,10 +7,11 @@ export const APP_CONFIG = {
         TODO_MODE: 'endfield_todo_mode'             // 간편/상세 모드
     },
     PATHS: {
-        DATA: 'data/data.json',
-        LOCATIONS: 'data/locations.json',
-        TASKS: 'data/tasks.json',
-        CONFIG: 'data/config.json'
+        DATA: `${BASE_URL}data/data.json`,
+        LOCATIONS: `${BASE_URL}data/locations.json`,
+        TASKS: `${BASE_URL}data/tasks.json`,
+        CONFIG: `${BASE_URL}data/config.json`,
+        WEAPON_IMAGES: `${BASE_URL}assets/images/weapons`
     },
     RESET_HOUR: 5, // 오전 5시 리셋
     CATEGORIES: {

@@ -17,7 +17,7 @@ export class FarmingRenderer {
 
     static createIconCard(w, status) {
         const fileName = w.image ? w.image.split('/').pop() : '';
-        const imgPath = fileName ? `assets/images/weapons/${w.rarity} star/${fileName}` : '';
+        const imgPath = fileName ? `${APP_CONFIG.PATHS.WEAPON_IMAGES}/${w.rarity} star/${fileName}` : '';
         
         let cardClass = "border-slate-700 bg-slate-800/50 opacity-50 grayscale hover:opacity-80";
         let icon = "";
@@ -98,7 +98,7 @@ export class FarmingRenderer {
 
         const html = sortedItems.map(w => {
             const fileName = w.image ? w.image.split('/').pop() : '';
-            const imgPath = fileName ? `assets/images/weapons/${w.rarity} star/${fileName}` : '';
+            const imgPath = fileName ? `${APP_CONFIG.PATHS.WEAPON_IMAGES}/${w.rarity} star/${fileName}` : '';
 
             const isPriority = priorityWeapon === w.name;
             const isTarget = w.isTarget;

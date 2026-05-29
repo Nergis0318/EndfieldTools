@@ -9,9 +9,7 @@ export class DataService {
      */
     static async fetchJson(path) {
         try {
-            // 캐싱 방지
-            const url = `${path}?t=${new Date().getTime()}`;
-            const response = await fetch(url);
+            const response = await fetch(path);
             if (!response.ok) throw new Error(`Failed to load ${path}`);
             return await response.json();
         } catch (error) {

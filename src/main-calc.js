@@ -10,6 +10,7 @@ import { FarmingRenderer } from './ui/FarmingRenderer.js';
 class CalcApp {
     constructor() {
         this.weapons = [];
+        this.currentDisplayList = [];
         this.activeTags = new Set();
         this.searchQuery = "";
         this.targetRarity = 6;
@@ -76,6 +77,7 @@ class CalcApp {
         const displayList = decisionList.filter(w => 
             this.searchQuery === "" || w.name.includes(this.searchQuery)
         );
+        this.currentDisplayList = displayList;
 
         if(countEl) countEl.innerText = displayList.length;
         
@@ -171,7 +173,18 @@ class CalcApp {
     }
 
     toggleAccordion(index) {
-        document.getElementById(`weapon-${index}`).classList.toggle('details-open');
+        const card = document.getElementById(`weapon-${index}`);
+        const details = card?.querySelector('[data-details-content]');
+        const weapon = this.currentDisplayList[index];
+
+        if (!card || !details || !weapon) return;
+
+        if (!details.dataset.loaded) {
+            details.innerHTML = WeaponRenderer.createDetails(weapon);
+            details.dataset.loaded = 'true';
+        }
+
+        card.classList.toggle('details-open');
     }
 
     // [추가됨] 기질 필터 접기/펴기 기능

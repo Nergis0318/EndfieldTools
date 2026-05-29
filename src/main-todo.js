@@ -1,4 +1,5 @@
 // src/main-todo.js
+import Sortable from 'sortablejs';
 import { APP_CONFIG } from './constants/AppConfig.js';
 import { StorageUtils } from './utils/StorageUtils.js';
 import { DateUtils } from './utils/CommonUtils.js';
