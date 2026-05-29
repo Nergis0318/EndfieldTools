@@ -1,29 +1,35 @@
 // src/ui/WeaponRenderer.js
-import { APP_CONFIG } from '../constants/AppConfig.js';
-import { UIUtils } from '../utils/CommonUtils.js';
+import { APP_CONFIG } from "../constants/AppConfig.js";
+import { UIUtils } from "../utils/CommonUtils.js";
 
 export class WeaponRenderer {
-    static createCard(w, index, status) {
-        const styles = UIUtils.getRarityStyles(w.rarity);
-        
-        const fileName = w.image ? w.image.split('/').pop() : '';
-        const imgPath = fileName ? `${APP_CONFIG.PATHS.WEAPON_IMAGES}/${w.rarity} star/${fileName}` : '';
-        
-        let cardStyle = 'bg-slate-800/40 border-transparent';
-        let checkIcon = '';
-        let label = '';
+  static createCard(w, index, status) {
+    const styles = UIUtils.getRarityStyles(w.rarity);
 
-        if (status === 1) { 
-            cardStyle = 'bg-orange-900/20 border-orange-500/50';
-            checkIcon = '<div class="absolute inset-0 bg-orange-600/55 flex items-center justify-center z-20"><span class="text-xs font-black tracking-widest text-white">TARGET</span></div>';
-            label = '<span class="text-[10px] md:text-sm font-bold text-orange-400 mr-1 md:mr-3 shrink-0"><span class="sm:hidden">TGT</span><span class="hidden sm:inline">파밍 타겟</span></span>';
-        } else if (status === 2) { 
-            cardStyle = 'bg-emerald-900/10 border-emerald-500/30';
-            checkIcon = '<div class="absolute inset-0 bg-black/60 flex items-center justify-center z-20"><span class="text-xs font-black tracking-widest text-emerald-200">DONE</span></div>';
-            label = '<span class="text-[10px] md:text-sm font-bold text-emerald-400 mr-1 md:mr-3 shrink-0"><span class="sm:hidden">OK</span><span class="hidden sm:inline">기질 보유중</span></span>';
-        }
+    const fileName = w.image ? w.image.split("/").pop() : "";
+    const imgPath = fileName
+      ? `${APP_CONFIG.PATHS.WEAPON_IMAGES}/${w.rarity} star/${fileName}`
+      : "";
 
-        return `
+    let cardStyle = "bg-slate-800/40 border-transparent";
+    let checkIcon = "";
+    let label = "";
+
+    if (status === 1) {
+      cardStyle = "bg-orange-900/20 border-orange-500/50";
+      checkIcon =
+        '<div class="absolute inset-0 bg-orange-600/55 flex items-center justify-center z-20"><span class="text-xs font-black tracking-widest text-white">TARGET</span></div>';
+      label =
+        '<span class="text-[10px] md:text-sm font-bold text-orange-400 mr-1 md:mr-3 shrink-0"><span class="sm:hidden">TGT</span><span class="hidden sm:inline">파밍 타겟</span></span>';
+    } else if (status === 2) {
+      cardStyle = "bg-emerald-900/10 border-emerald-500/30";
+      checkIcon =
+        '<div class="absolute inset-0 bg-black/60 flex items-center justify-center z-20"><span class="text-xs font-black tracking-widest text-emerald-200">DONE</span></div>';
+      label =
+        '<span class="text-[10px] md:text-sm font-bold text-emerald-400 mr-1 md:mr-3 shrink-0"><span class="sm:hidden">OK</span><span class="hidden sm:inline">기질 보유중</span></span>';
+    }
+
+    return `
             <div id="weapon-${index}" class="group relative transition-all duration-200 ${cardStyle} border overflow-hidden">
                 <div class="absolute left-0 top-0 bottom-0 w-[4px] md:w-[6px] ${styles.bar} z-10"></div>
                 
@@ -41,7 +47,7 @@ export class WeaponRenderer {
                             <span class="text-[10px] md:text-xs px-1.5 py-0.5 rounded font-bold ${styles.badge}">★${w.rarity}</span>
                         </div>
                         <div class="flex flex-wrap gap-1 md:gap-1.5">
-                            ${w.tags.map(t => `<span class="text-[10px] md:text-xs bg-slate-700 px-1.5 py-0.5 md:px-2 md:py-1 rounded text-slate-300 font-medium border border-white/5">${t}</span>`).join('')}
+                            ${w.tags.map((t) => `<span class="text-[10px] md:text-xs bg-slate-700 px-1.5 py-0.5 md:px-2 md:py-1 rounded text-slate-300 font-medium border border-white/5">${t}</span>`).join("")}
                         </div>
                     </div>
                     ${label}
@@ -51,15 +57,17 @@ export class WeaponRenderer {
                 <div class="details-content bg-slate-900/50 border-t border-white/5 ml-[4px] md:ml-[6px]" data-details-content></div>
             </div>
         `;
-    }
+  }
 
-    static createDetails(w) {
-        const fileName = w.image ? w.image.split('/').pop() : '';
-        const imgPath = fileName ? `${APP_CONFIG.PATHS.WEAPON_IMAGES}/${w.rarity} star/${fileName}` : '';
-        const effectsText = w.effects ? w.effects.trim() : '';
-        const locationText = w.location || '정보 없음';
+  static createDetails(w) {
+    const fileName = w.image ? w.image.split("/").pop() : "";
+    const imgPath = fileName
+      ? `${APP_CONFIG.PATHS.WEAPON_IMAGES}/${w.rarity} star/${fileName}`
+      : "";
+    const effectsText = w.effects ? w.effects.trim() : "";
+    const locationText = w.location || "정보 없음";
 
-        return `
+    return `
             <div class="p-4 md:p-5 grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-0">
                 <div class="flex items-center justify-center bg-slate-950/50 rounded-2xl md:rounded-r-none border border-slate-700/50 relative overflow-hidden p-2 min-h-[160px] md:min-h-full">
                     <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800/50 to-transparent opacity-50"></div>
@@ -95,5 +103,5 @@ export class WeaponRenderer {
                 </div>
             </div>
         `;
-    }
+  }
 }

@@ -3,144 +3,179 @@
 /* =========================================
    1. 기본 설정 (Base & Typography)
    ========================================= */
-body { 
-    font-family: 'Pretendard', sans-serif; 
-    -webkit-tap-highlight-color: transparent; 
-    overflow-x: hidden;
-    color: #e5edf2;
-    background:
-        linear-gradient(115deg, rgba(237, 120, 45, 0.10), transparent 28%),
-        radial-gradient(circle at 82% 8%, rgba(54, 211, 196, 0.13), transparent 30%),
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-        #080c10;
-    background-size: auto, auto, 42px 42px, 42px 42px, auto;
-    letter-spacing: 0;
+body {
+  font-family: "Pretendard", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  color: #e5edf2;
+  background:
+    linear-gradient(115deg, rgba(237, 120, 45, 0.1), transparent 28%),
+    radial-gradient(
+      circle at 82% 8%,
+      rgba(54, 211, 196, 0.13),
+      transparent 30%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    #080c10;
+  background-size:
+    auto,
+    auto,
+    42px 42px,
+    42px 42px,
+    auto;
+  letter-spacing: 0;
 }
 
-.no-select { 
-    user-select: none; 
-    -webkit-user-select: none; 
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* =========================================
    2. UI 컴포넌트 (Common Components)
    ========================================= */
-.glass-panel { 
-    background:
-        linear-gradient(135deg, rgba(18, 28, 32, 0.94), rgba(10, 15, 19, 0.90)),
-        linear-gradient(90deg, rgba(54, 211, 196, 0.10), transparent 38%);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(127, 151, 156, 0.28);
-    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.46), inset 0 1px 0 rgba(255,255,255,0.05);
-    border-radius: 10px !important;
+.glass-panel {
+  background:
+    linear-gradient(135deg, rgba(18, 28, 32, 0.94), rgba(10, 15, 19, 0.9)),
+    linear-gradient(90deg, rgba(54, 211, 196, 0.1), transparent 38%);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(127, 151, 156, 0.28);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.46),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-radius: 10px !important;
 }
 
 /* 상단 고정 패널 (Sticky Panel) */
-.sticky-panel { 
-    background:
-        linear-gradient(135deg, rgba(21, 30, 32, 0.98), rgba(8, 12, 16, 0.96));
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(71, 238, 221, 0.24);
-    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255,255,255,0.06);
-    border-radius: 10px !important;
-    transition: all 0.3s ease; 
+.sticky-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(21, 30, 32, 0.98),
+    rgba(8, 12, 16, 0.96)
+  );
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(71, 238, 221, 0.24);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.52),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 10px !important;
+  transition: all 0.3s ease;
 }
 
 body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background:
-        linear-gradient(90deg, transparent 0 8%, rgba(54, 211, 196, 0.08) 8% 8.3%, transparent 8.3% 100%),
-        linear-gradient(180deg, transparent 0 18%, rgba(237, 120, 45, 0.08) 18% 18.3%, transparent 18.3% 100%);
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 8%,
+      rgba(54, 211, 196, 0.08) 8% 8.3%,
+      transparent 8.3% 100%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0 18%,
+      rgba(237, 120, 45, 0.08) 18% 18.3%,
+      transparent 18.3% 100%
+    );
 }
 
 body > nav {
-    background: rgba(7, 11, 14, 0.92) !important;
-    border-bottom: 1px solid rgba(71, 238, 221, 0.22) !important;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.42);
+  background: rgba(7, 11, 14, 0.92) !important;
+  border-bottom: 1px solid rgba(71, 238, 221, 0.22) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
 }
 
 body > nav a {
-    border-radius: 6px !important;
-    border: 1px solid rgba(127, 151, 156, 0.28);
-    background: rgba(18, 28, 32, 0.86) !important;
-    color: #93a5a8 !important;
-    letter-spacing: 0.02em;
+  border-radius: 6px !important;
+  border: 1px solid rgba(127, 151, 156, 0.28);
+  background: rgba(18, 28, 32, 0.86) !important;
+  color: #93a5a8 !important;
+  letter-spacing: 0.02em;
 }
 
 body > nav a.bg-blue-600 {
-    background: linear-gradient(135deg, #e96725, #c34222) !important;
-    border-color: rgba(255, 170, 96, 0.68);
-    color: white !important;
-    box-shadow: 0 0 24px rgba(233, 103, 37, 0.32);
+  background: linear-gradient(135deg, #e96725, #c34222) !important;
+  border-color: rgba(255, 170, 96, 0.68);
+  color: white !important;
+  box-shadow: 0 0 24px rgba(233, 103, 37, 0.32);
 }
 
 button,
 input {
-    border-radius: 6px !important;
+  border-radius: 6px !important;
 }
 
 button {
-    letter-spacing: 0.01em;
+  letter-spacing: 0.01em;
 }
 
 input {
-    background: rgba(5, 9, 12, 0.86) !important;
-    border-color: rgba(127, 151, 156, 0.34) !important;
+  background: rgba(5, 9, 12, 0.86) !important;
+  border-color: rgba(127, 151, 156, 0.34) !important;
 }
 
 input:focus {
-    border-color: rgba(71, 238, 221, 0.72) !important;
-    box-shadow: 0 0 0 2px rgba(71, 238, 221, 0.10);
+  border-color: rgba(71, 238, 221, 0.72) !important;
+  box-shadow: 0 0 0 2px rgba(71, 238, 221, 0.1);
 }
 
 #manager-modal-content {
-    height: 100vh;
-    height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
 }
 
 #hidden-modal-backdrop > div {
-    max-height: 80vh;
-    max-height: 80dvh;
+  max-height: 80vh;
+  max-height: 80dvh;
 }
 
 #decision-box > div {
-    border-radius: 10px !important;
-    border-color: rgba(255,255,255,0.25) !important;
-    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+  border-radius: 10px !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 18px) 0,
+    100% 18px,
+    100% 100%,
+    18px 100%,
+    0 calc(100% - 18px)
+  );
 }
 
 #decision-box .bg-blue-600 {
-    background: linear-gradient(135deg, #1b6772, #12343d) !important;
+  background: linear-gradient(135deg, #1b6772, #12343d) !important;
 }
 
 #decision-box .bg-red-600 {
-    background: linear-gradient(135deg, #e96725, #7d1f18) !important;
+  background: linear-gradient(135deg, #e96725, #7d1f18) !important;
 }
 
 #decision-box .bg-slate-700,
 #decision-box .bg-slate-800\/90 {
-    background: linear-gradient(135deg, #1a2327, #0a0f13) !important;
+  background: linear-gradient(135deg, #1a2327, #0a0f13) !important;
 }
 
 #weapon-list,
 #task-list .glass-panel {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 #weapon-list > .group,
 .task-item > .glass-panel {
-    border-color: rgba(127, 151, 156, 0.22) !important;
+  border-color: rgba(127, 151, 156, 0.22) !important;
 }
 
 #weapon-list > .group:hover,
 .task-item > .glass-panel:hover {
-    border-color: rgba(71, 238, 221, 0.42) !important;
-    box-shadow: inset 2px 0 0 rgba(71, 238, 221, 0.62), 0 12px 30px rgba(0,0,0,0.35);
+  border-color: rgba(71, 238, 221, 0.42) !important;
+  box-shadow:
+    inset 2px 0 0 rgba(71, 238, 221, 0.62),
+    0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 #tags-stats button,
@@ -148,83 +183,92 @@ input:focus {
 #tags-series button,
 #farm-rec-main span,
 #farm-rec-special span {
-    border-radius: 4px !important;
-    text-transform: uppercase;
+  border-radius: 4px !important;
+  text-transform: uppercase;
 }
 
 .bg-blue-600,
 .bg-purple-600,
 .bg-emerald-600 {
-    background-color: #12998d !important;
+  background-color: #12998d !important;
 }
 
 .bg-orange-600,
 .bg-yellow-500,
 .bg-yellow-600 {
-    background-color: #e96725 !important;
+  background-color: #e96725 !important;
 }
 
 .text-blue-400,
 .text-purple-400,
 .text-emerald-400 {
-    color: #47eedd !important;
+  color: #47eedd !important;
 }
 
 .text-orange-400,
 .text-yellow-400,
 .text-amber-500 {
-    color: #ff9852 !important;
+  color: #ff9852 !important;
 }
 
 /* 아코디언 애니메이션 */
-.details-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.3s; }
-.details-open .details-content { max-height: 1000px; opacity: 1; margin-top: 1rem; }
+.details-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.details-open .details-content {
+  max-height: 1000px;
+  opacity: 1;
+  margin-top: 1rem;
+}
 
 /* =========================================
    3. 스크롤바 디자인 (Scrollbar)
    ========================================= */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: rgba(15, 23, 42, 0.5);
+  background: rgba(15, 23, 42, 0.5);
 }
 ::-webkit-scrollbar-thumb {
-    background: #334155;
-    border-radius: 4px;
-    border: 2px solid rgba(15, 23, 42, 0.5);
+  background: #334155;
+  border-radius: 4px;
+  border: 2px solid rgba(15, 23, 42, 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+  background: #475569;
 }
 
 @media (max-width: 768px) {
-    ::-webkit-scrollbar {
-        display: none;
-    }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
-    body > nav {
-        padding-top: max(0.625rem, env(safe-area-inset-top));
-    }
+  body > nav {
+    padding-top: max(0.625rem, env(safe-area-inset-top));
+  }
 
-    #manager-scroll-area {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+  #manager-scroll-area {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-    #manager-list-6,
-    #manager-list-5 {
-        gap: 0.625rem;
-    }
+  #manager-list-6,
+  #manager-list-5 {
+    gap: 0.625rem;
+  }
 
-    #farming-summary-bar {
-        padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    }
+  #farming-summary-bar {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
 
-    #farming-strategy-drawer > div:last-child {
-        padding-bottom: max(1rem, env(safe-area-inset-bottom));
-    }
+  #farming-strategy-drawer > div:last-child {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
 }
 
 /* =========================================
@@ -232,40 +276,63 @@ input:focus {
    ========================================= */
 /* 하단 요약 바 */
 #farming-summary-bar {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100%);
 }
-#farming-summary-bar.show { transform: translateY(0); }
+#farming-summary-bar.show {
+  transform: translateY(0);
+}
 
 /* 전략 패널 (Drawer) */
 #farming-strategy-drawer {
-    transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-    transform: translateY(110%);
-    z-index: 50;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  transform: translateY(110%);
+  z-index: 50;
 }
-#farming-strategy-drawer.open { transform: translateY(0); }
+#farming-strategy-drawer.open {
+  transform: translateY(0);
+}
 
 /* 우선순위 및 배지 */
 .priority-target {
-    border-color: #f59e0b !important;
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
-    transform: scale(1.05);
-    z-index: 10;
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+  transform: scale(1.05);
+  z-index: 10;
 }
 .priority-crown {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    font-size: 16px; z-index: 20; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  z-index: 20;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.5));
 }
 
 .match-badge {
-    position: absolute; bottom: -6px; right: -6px;
-    font-size: 10px; font-weight: 900; padding: 2px 6px;
-    border-radius: 999px; box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.2);
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 999px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
-.match-good { background: #10b981; color: white; }
-.match-mid { background: #f59e0b; color: white; }
-.match-bad { background: #64748b; color: #cbd5e1; }
+.match-good {
+  background: #10b981;
+  color: white;
+}
+.match-mid {
+  background: #f59e0b;
+  color: white;
+}
+.match-bad {
+  background: #64748b;
+  color: #cbd5e1;
+}
 
 /* =========================================
    5. 숙제 관리 전용 (To-Do)
@@ -273,41 +340,127 @@ input:focus {
 
 /* [핵심 수정] 삭제 영역 (Trash Zone) - 오른쪽 배치 */
 #trash-zone {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    /* 평소에는 오른쪽 화면 밖(100%)에 숨겨둠 */
-    transform: translateX(100%); 
-    opacity: 0;
-    pointer-events: none;
-    
-    /* 배경: 왼쪽(투명) -> 오른쪽(진한 빨강) */
-    background: linear-gradient(to left, rgba(220, 38, 38, 0.9) 0%, rgba(220, 38, 38, 0.1) 70%, transparent 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* 평소에는 오른쪽 화면 밖(100%)에 숨겨둠 */
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+
+  /* 배경: 왼쪽(투명) -> 오른쪽(진한 빨강) */
+  background: linear-gradient(
+    to left,
+    rgba(220, 38, 38, 0.9) 0%,
+    rgba(220, 38, 38, 0.1) 70%,
+    transparent 100%
+  );
 }
 
 #trash-zone.active {
-    /* 활성화 시 제자리(0)로 스르륵 이동 */
-    transform: translateX(0); 
-    opacity: 1;
-    pointer-events: auto;
+  /* 활성화 시 제자리(0)로 스르륵 이동 */
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* 드래그 앤 드롭 관련 */
-.drag-handle { cursor: grab; touch-action: none; }
-.drag-handle:active { cursor: grabbing; color: #34d399; }
+.drag-handle {
+  cursor: grab;
+  touch-action: none;
+}
+.drag-handle:active {
+  cursor: grabbing;
+  color: #34d399;
+}
 
-.sortable-ghost { opacity: 0.3; background: #334155; border-radius: 1rem; }
-.sortable-fallback { opacity: 1 !important; transform: scale(1.02); z-index: 9999; pointer-events: none; }
+.sortable-ghost {
+  opacity: 0.3;
+  background: #334155;
+  border-radius: 1rem;
+}
+.sortable-fallback {
+  opacity: 1 !important;
+  transform: scale(1.02);
+  z-index: 9999;
+  pointer-events: none;
+}
 
 /* 모드 스위치 및 프로그레스 바 */
-.mode-switch { position: relative; width: 120px; height: 32px; background: #070b0e; border-radius: 6px; padding: 3px; cursor: pointer; border: 1px solid rgba(127, 151, 156, 0.34); display: flex; align-items: center; }
-.mode-switch-thumb { position: absolute; left: 3px; top: 3px; width: 56px; height: 24px; background: linear-gradient(135deg, #12998d, #0f5f61); border-radius: 4px; transition: all 0.3s; z-index: 1; box-shadow: 0 0 16px rgba(71, 238, 221, 0.25); }
-.mode-detail .mode-switch-thumb { transform: translateX(56px); background: linear-gradient(135deg, #e96725, #92351d); }
-.mode-label { width: 50%; text-align: center; font-size: 11px; font-weight: 800; z-index: 2; color: #94a3b8; transition: color 0.3s; }
-.mode-label.active { color: white; }
-.progress-bar { transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1); background: linear-gradient(90deg, #12998d, #47eedd, #e96725) !important; box-shadow: 0 0 16px rgba(71, 238, 221, 0.28) !important; }
+.mode-switch {
+  position: relative;
+  width: 120px;
+  height: 32px;
+  background: #070b0e;
+  border-radius: 6px;
+  padding: 3px;
+  cursor: pointer;
+  border: 1px solid rgba(127, 151, 156, 0.34);
+  display: flex;
+  align-items: center;
+}
+.mode-switch-thumb {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 56px;
+  height: 24px;
+  background: linear-gradient(135deg, #12998d, #0f5f61);
+  border-radius: 4px;
+  transition: all 0.3s;
+  z-index: 1;
+  box-shadow: 0 0 16px rgba(71, 238, 221, 0.25);
+}
+.mode-detail .mode-switch-thumb {
+  transform: translateX(56px);
+  background: linear-gradient(135deg, #e96725, #92351d);
+}
+.mode-label {
+  width: 50%;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  z-index: 2;
+  color: #94a3b8;
+  transition: color 0.3s;
+}
+.mode-label.active {
+  color: white;
+}
+.progress-bar {
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(90deg, #12998d, #47eedd, #e96725) !important;
+  box-shadow: 0 0 16px rgba(71, 238, 221, 0.28) !important;
+}
 
 /* 체크박스 & 완료 스타일 */
-.custom-checkbox { appearance: none; width: 1.1rem; height: 1.1rem; border: 2px solid #475569; border-radius: 0.25rem; background-color: #0f172a; cursor: pointer; position: relative; }
-.custom-checkbox:checked { background-color: #8b5cf6; border-color: #8b5cf6; }
-.custom-checkbox:checked::after { content: '✔'; position: absolute; color: white; font-size: 0.6rem; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.task-item.completed .task-card { background: rgba(6, 78, 59, 0.15); border-color: rgba(16, 185, 129, 0.3); }
-.task-item.completed .task-title { color: #34d399; text-decoration: line-through; opacity: 0.7; }
+.custom-checkbox {
+  appearance: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid #475569;
+  border-radius: 0.25rem;
+  background-color: #0f172a;
+  cursor: pointer;
+  position: relative;
+}
+.custom-checkbox:checked {
+  background-color: #8b5cf6;
+  border-color: #8b5cf6;
+}
+.custom-checkbox:checked::after {
+  content: "✔";
+  position: absolute;
+  color: white;
+  font-size: 0.6rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.task-item.completed .task-card {
+  background: rgba(6, 78, 59, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+.task-item.completed .task-title {
+  color: #34d399;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
