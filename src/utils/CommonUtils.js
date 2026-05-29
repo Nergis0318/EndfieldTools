@@ -39,7 +39,7 @@ export class UIUtils {
      */
     static getRarityStyles(rarity) {
         const r = parseInt(rarity) || 0;
-        if (r === 6) return { badge: 'bg-orange-600 text-white', bar: 'bg-orange-500 shadow-[0_0_12px_orange]', text: 'text-orange-400' };
+        if (r === 6) return { badge: 'bg-orange-600 text-white', bar: 'bg-orange-500 shadow-[0_0_12px_#e96725]', text: 'text-orange-400' };
         if (r === 5) return { badge: 'bg-yellow-600 text-white', bar: 'bg-yellow-400', text: 'text-yellow-400' };
         if (r === 4) return { badge: 'bg-purple-600 text-white', bar: 'bg-purple-400', text: 'text-purple-400' };
         return { badge: 'bg-slate-600 text-slate-200', bar: 'bg-slate-600', text: 'text-slate-400' };

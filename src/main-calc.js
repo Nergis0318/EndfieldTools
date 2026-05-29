@@ -133,7 +133,7 @@ class CalcApp {
     }
 
     renderBoxContent(el, title, desc, bgClass) {
-        el.innerHTML = `<div class="${bgClass} rounded-2xl md:rounded-3xl h-32 md:h-52 flex flex-col justify-center items-center p-3 md:p-4 text-center shadow-2xl border-2 border-white/20 animate-pop relative overflow-hidden transition-colors duration-300"><div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div><h2 class="text-4xl md:text-6xl font-black text-white drop-shadow-lg relative z-10 leading-tight">${title}</h2>${desc ? `<p class="text-sm md:text-xl font-bold text-white/80 relative z-10 mt-1 md:mt-2">${desc}</p>` : ''}</div>`;
+        el.innerHTML = `<div class="${bgClass} rounded-2xl md:rounded-3xl h-24 md:h-52 flex flex-col justify-center items-center p-3 md:p-4 text-center shadow-2xl border-2 border-white/20 animate-pop relative overflow-hidden transition-colors duration-300"><div class="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none"></div><h2 class="text-3xl md:text-6xl font-black text-white drop-shadow-lg relative z-10 leading-tight">${title}</h2>${desc ? `<p class="text-xs md:text-xl font-bold text-white/80 relative z-10 mt-1 md:mt-2">${desc}</p>` : ''}</div>`;
     }
 
     // --- Actions ---

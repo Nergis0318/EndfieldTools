@@ -24,20 +24,20 @@ export class FarmingRenderer {
         
         if (status === 1) { 
             cardClass = "border-orange-500 bg-orange-900/30 ring-2 ring-orange-500/50 opacity-100";
-            icon = '<div class="absolute top-1 right-1 bg-orange-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shadow-md z-10 font-bold">🎯</div>';
+            icon = '<div class="absolute top-1 right-1 bg-orange-500 text-white rounded-sm px-1.5 h-5 flex items-center justify-center text-[9px] shadow-md z-10 font-black">TGT</div>';
         } else if (status === 2) { 
             cardClass = "border-emerald-500 bg-emerald-900/30 ring-2 ring-emerald-500/50 opacity-100";
-            icon = '<div class="absolute top-1 right-1 bg-emerald-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs shadow-md z-10 font-bold">✓</div>';
+            icon = '<div class="absolute top-1 right-1 bg-emerald-500 text-white rounded-sm px-1.5 h-5 flex items-center justify-center text-[9px] shadow-md z-10 font-black">OK</div>';
         }
 
         // [수정] 롱프레스 이벤트 제거 & handleManagerClick으로 변경
         return `
             <button 
                 onclick="event.stopPropagation(); window.app.handleManagerClick('${w.name}')"
-                class="no-select group relative aspect-square rounded-2xl border-2 transition-all duration-200 flex flex-col items-center justify-center p-2 gap-1 active:scale-95 ${cardClass}">
+                class="no-select group relative aspect-square rounded-xl md:rounded-2xl border-2 transition-all duration-200 flex flex-col items-center justify-center p-1.5 md:p-2 gap-1 active:scale-95 ${cardClass}">
                 ${icon}
                 <img src="${imgPath}" loading="lazy" class="w-full h-3/5 object-contain mb-1" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTQxYjgyIiBzdHJva2Utd2lkdGg9IjIiPjxwYXRoIGQ9Ik0xNC41IDEwTDQgMjBNOi41IDEwTDIwIDRNMiAyMmwyMC0yIi8+PC9zdmc+'">
-                <span class="text-xs md:text-sm leading-tight text-slate-300 w-full truncate font-bold text-center px-1">${w.name}</span>
+                <span class="text-[11px] md:text-sm leading-tight text-slate-300 w-full truncate font-bold text-center px-0.5 md:px-1">${w.name}</span>
             </button>
         `;
     }
@@ -56,12 +56,12 @@ export class FarmingRenderer {
         let descHtml = "";
         
         if (plan.targetCount > 0) {
-            descHtml += `<span class="text-orange-400 font-bold mr-1">🎯 타겟 ${plan.targetCount}</span>`;
+            descHtml += `<span class="text-orange-400 font-bold mr-1">TARGET ${plan.targetCount}</span>`;
             descHtml += `<span class="text-slate-500 text-xs mr-3">(${plan.targetEfficiency}%)</span>`;
         }
         
         if (plan.normalCount > 0) {
-            descHtml += `<span class="text-slate-400 font-bold text-sm">📦 일반 ${plan.normalCount}</span>`;
+            descHtml += `<span class="text-slate-400 font-bold text-sm">NORMAL ${plan.normalCount}</span>`;
         }
         
         if (plan.count === 0) descHtml = `<span class="text-slate-500">획득 가능 아이템 없음</span>`;
@@ -116,7 +116,7 @@ export class FarmingRenderer {
             return `
                 <div class="relative flex-shrink-0 cursor-pointer transition-transform active:scale-95 flex flex-col items-center gap-1" onclick="window.app.setPriority('${w.name}')">
                     ${crown}
-                    <div class="w-28 h-36 rounded-xl bg-slate-800 border ${borderClass} relative overflow-hidden flex flex-col shadow-lg ${visualClass}">
+                    <div class="w-24 h-32 md:w-28 md:h-36 rounded-xl bg-slate-800 border ${borderClass} relative overflow-hidden flex flex-col shadow-lg ${visualClass}">
                         <div class="flex-1 flex items-center justify-center p-2 bg-slate-900/50">
                             <img src="${imgPath}" loading="lazy" class="w-full h-full object-contain">
                         </div>

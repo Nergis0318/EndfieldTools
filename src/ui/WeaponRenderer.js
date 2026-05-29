@@ -15,21 +15,21 @@ export class WeaponRenderer {
 
         if (status === 1) { 
             cardStyle = 'bg-orange-900/20 border-orange-500/50';
-            checkIcon = '<div class="absolute inset-0 bg-orange-600/50 flex items-center justify-center z-20"><span class="text-4xl">🎯</span></div>';
-            label = '<span class="text-[10px] md:text-sm font-bold text-orange-400 mr-2 md:mr-3 shrink-0">파밍 타겟</span>';
+            checkIcon = '<div class="absolute inset-0 bg-orange-600/55 flex items-center justify-center z-20"><span class="text-xs font-black tracking-widest text-white">TARGET</span></div>';
+            label = '<span class="text-[10px] md:text-sm font-bold text-orange-400 mr-1 md:mr-3 shrink-0"><span class="sm:hidden">TGT</span><span class="hidden sm:inline">파밍 타겟</span></span>';
         } else if (status === 2) { 
             cardStyle = 'bg-emerald-900/10 border-emerald-500/30';
-            checkIcon = '<div class="absolute inset-0 bg-black/50 flex items-center justify-center z-20"><span class="text-4xl">✅</span></div>';
-            label = '<span class="text-[10px] md:text-sm font-bold text-emerald-400 mr-2 md:mr-3 shrink-0">기질 보유중</span>';
+            checkIcon = '<div class="absolute inset-0 bg-black/60 flex items-center justify-center z-20"><span class="text-xs font-black tracking-widest text-emerald-200">DONE</span></div>';
+            label = '<span class="text-[10px] md:text-sm font-bold text-emerald-400 mr-1 md:mr-3 shrink-0"><span class="sm:hidden">OK</span><span class="hidden sm:inline">기질 보유중</span></span>';
         }
 
         return `
             <div id="weapon-${index}" class="group relative transition-all duration-200 ${cardStyle} border overflow-hidden">
                 <div class="absolute left-0 top-0 bottom-0 w-[4px] md:w-[6px] ${styles.bar} z-10"></div>
                 
-                <div onclick="window.app.toggleAccordion(${index})" class="flex items-center gap-3 md:gap-5 px-3 py-3 md:px-6 md:py-5 cursor-pointer pl-6 md:pl-8 relative z-20"> 
+                <div onclick="window.app.toggleAccordion(${index})" class="flex items-center gap-2.5 md:gap-5 px-3 py-3 md:px-6 md:py-5 cursor-pointer pl-6 md:pl-8 relative z-20"> 
                     
-                    <div class="no-select w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 border border-slate-700 relative overflow-hidden shrink-0" 
+                    <div class="no-select w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-slate-900 border border-slate-700 relative overflow-hidden shrink-0 shadow-[inset_0_0_18px_rgba(71,238,221,0.08)]" 
                          onclick="event.stopPropagation(); window.app.handleClick('${w.name}')">
                         ${checkIcon}
                         <img src="${imgPath}" loading="lazy" class="w-full h-full object-contain p-1 md:p-1.5" onerror="this.style.display='none'">
@@ -41,11 +41,11 @@ export class WeaponRenderer {
                             <span class="text-[10px] md:text-xs px-1.5 py-0.5 rounded font-bold ${styles.badge}">★${w.rarity}</span>
                         </div>
                         <div class="flex flex-wrap gap-1 md:gap-1.5">
-                            ${w.tags.map(t => `<span class="text-[10px] md:text-xs bg-slate-700 px-1.5 py-0.5 md:px-2 md:py-1 rounded text-slate-300 font-medium">${t}</span>`).join('')}
+                            ${w.tags.map(t => `<span class="text-[10px] md:text-xs bg-slate-700 px-1.5 py-0.5 md:px-2 md:py-1 rounded text-slate-300 font-medium border border-white/5">${t}</span>`).join('')}
                         </div>
                     </div>
                     ${label}
-                    <span class="arrow-icon text-slate-500 text-xs md:text-sm transition-transform duration-300">▼</span>
+                    <span class="arrow-icon text-slate-500 text-xs md:text-sm transition-transform duration-300 shrink-0">▼</span>
                 </div>
 
                 <div class="details-content bg-slate-900/50 border-t border-white/5 ml-[4px] md:ml-[6px]" data-details-content></div>
