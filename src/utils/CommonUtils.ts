@@ -1,5 +1,5 @@
-// src/utils/CommonUtils.js
-import { APP_CONFIG } from "../constants/AppConfig.js";
+// src/utils/CommonUtils.ts
+import { APP_CONFIG } from "../constants/AppConfig.ts";
 
 export class DateUtils {
   /**

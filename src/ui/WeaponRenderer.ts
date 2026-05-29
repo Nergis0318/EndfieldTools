@@ -1,6 +1,6 @@
-// src/ui/WeaponRenderer.js
-import { APP_CONFIG } from "../constants/AppConfig.js";
-import { UIUtils } from "../utils/CommonUtils.js";
+// src/ui/WeaponRenderer.ts
+import { APP_CONFIG } from "../constants/AppConfig.ts";
+import { UIUtils } from "../utils/CommonUtils.ts";
 
 export class WeaponRenderer {
   static createCard(w, index, status) {

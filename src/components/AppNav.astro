@@ -1,0 +1,35 @@
+---
+interface Props {
+  activePage: "calc" | "todo";
+}
+
+const { activePage } = Astro.props;
+const baseLinkClass =
+  "rounded-xl px-3 py-2.5 text-xs font-bold transition-all md:px-5 md:text-base";
+const activeLinkClass = "scale-105 bg-blue-600 text-white shadow-lg";
+const inactiveLinkClass =
+  "bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white";
+---
+
+<nav
+  class="sticky top-0 z-50 flex justify-center gap-2 border-b border-white/5 bg-slate-900/90 p-2.5 backdrop-blur-md md:p-3"
+>
+  <a
+    href="/"
+    class:list={[
+      baseLinkClass,
+      activePage === "calc" ? activeLinkClass : inactiveLinkClass,
+    ]}
+  >
+    [CALC] 기질 계산
+  </a>
+  <a
+    href="/todo"
+    class:list={[
+      baseLinkClass,
+      activePage === "todo" ? activeLinkClass : inactiveLinkClass,
+    ]}
+  >
+    [OPS] 업무 관리
+  </a>
+</nav>

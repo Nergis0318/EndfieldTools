@@ -1,4 +1,4 @@
-// src/domain/TaskLogic.js
+// src/domain/TaskLogic.ts
 
 export class TaskLogic {
   /**
@@ -16,7 +16,7 @@ export class TaskLogic {
     }
 
     // 3. 정렬 (커스텀 순서 -> 기본 순서)
-    const orderMap = new Map(
+    const orderMap = new Map<string, number>(
       (state.order[currentTab] || []).map((id, i) => [id, i]),
     );
 

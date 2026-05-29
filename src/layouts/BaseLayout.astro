@@ -1,0 +1,34 @@
+---
+import "@fontsource/pretendard/300.css";
+import "@fontsource/pretendard/400.css";
+import "@fontsource/pretendard/600.css";
+import "@fontsource/pretendard/700.css";
+import "@fontsource/pretendard/900.css";
+import "../assets/css/style.css";
+import AppNav from "../components/AppNav.astro";
+
+interface Props {
+  title: string;
+  activePage: "calc" | "todo";
+  bodyClass?: string;
+}
+
+const { title, activePage, bodyClass = "" } = Astro.props;
+const baseBodyClass =
+  "relative min-h-screen overflow-x-hidden bg-slate-950 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-800 via-slate-950 to-black text-base text-slate-100 selection:bg-blue-500 selection:text-white";
+---
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>{title}</title>
+  </head>
+  <body class:list={[baseBodyClass, bodyClass]}>
+    <AppNav activePage={activePage} />
+    <slot />
+  </body>
+</html>

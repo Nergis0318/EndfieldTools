@@ -1,13 +1,15 @@
-// src/main-calc.js
-import { APP_CONFIG } from "./constants/AppConfig.js";
-import { StorageUtils } from "./utils/StorageUtils.js";
-import { DataService } from "./services/DataService.js";
-import { UIUtils } from "./utils/CommonUtils.js";
-import { FarmingLogic } from "./domain/FarmingLogic.js";
-import { WeaponRenderer } from "./ui/WeaponRenderer.js";
-import { FarmingRenderer } from "./ui/FarmingRenderer.js";
+// src/main-calc.ts
+import { APP_CONFIG } from "./constants/AppConfig.ts";
+import { StorageUtils } from "./utils/StorageUtils.ts";
+import { DataService } from "./services/DataService.ts";
+import { UIUtils } from "./utils/CommonUtils.ts";
+import { FarmingLogic } from "./domain/FarmingLogic.ts";
+import { WeaponRenderer } from "./ui/WeaponRenderer.ts";
+import { FarmingRenderer } from "./ui/FarmingRenderer.ts";
 
 class CalcApp {
+  [key: string]: any;
+
   constructor() {
     this.weapons = [];
     this.currentDisplayList = [];
@@ -51,10 +53,10 @@ class CalcApp {
 
     const allTags = [
       ...new Set(this.weapons.flatMap((w) => w.tags || [])),
-    ].sort();
+    ].sort() as string[];
 
     allTags.forEach((tag) => {
-      let category = "attrs";
+      let category: keyof typeof containers = "attrs";
       let activeClass =
         "bg-emerald-600 text-white border-emerald-500 shadow-md";
 
@@ -191,7 +193,7 @@ class CalcApp {
   resetFilters() {
     this.activeTags.clear();
     this.searchQuery = "";
-    document.getElementById("search-input").value = "";
+    (document.getElementById("search-input") as HTMLInputElement).value = "";
     this.renderTags();
     this.updateUI();
   }
@@ -216,7 +218,9 @@ class CalcApp {
 
   toggleAccordion(index) {
     const card = document.getElementById(`weapon-${index}`);
-    const details = card?.querySelector("[data-details-content]");
+    const details = card?.querySelector(
+      "[data-details-content]",
+    ) as HTMLElement | null;
     const weapon = this.currentDisplayList[index];
 
     if (!card || !details || !weapon) return;
@@ -289,7 +293,9 @@ class CalcApp {
     // 관리창(Modal)이 열려있다면 함께 갱신 (동기화)
     const modal = document.getElementById("manager-modal-backdrop");
     if (modal && !modal.classList.contains("hidden")) {
-      const searchVal = document.getElementById("manager-search").value;
+      const searchVal = (
+        document.getElementById("manager-search") as HTMLInputElement
+      ).value;
       FarmingRenderer.renderModalList(
         this.weapons.filter((w) => w.name.includes(searchVal)),
         this.statusMap,
@@ -314,7 +320,9 @@ class CalcApp {
     this.updateUI();
 
     // 모달 리스트 즉시 갱신
-    const searchVal = document.getElementById("manager-search").value;
+    const searchVal = (
+      document.getElementById("manager-search") as HTMLInputElement
+    ).value;
     FarmingRenderer.renderModalList(
       this.weapons.filter((w) => w.name.includes(searchVal)),
       this.statusMap,
@@ -346,7 +354,9 @@ class CalcApp {
     // 메인 리스트에서도 모달 갱신 호출 (양방향 동기화)
     const modal = document.getElementById("manager-modal-backdrop");
     if (modal && !modal.classList.contains("hidden")) {
-      const searchVal = document.getElementById("manager-search").value;
+      const searchVal = (
+        document.getElementById("manager-search") as HTMLInputElement
+      ).value;
       FarmingRenderer.renderModalList(
         this.weapons.filter((w) => w.name.includes(searchVal)),
         this.statusMap,
@@ -370,7 +380,7 @@ class CalcApp {
     const modal = document.getElementById("manager-modal-backdrop");
     const content = document.getElementById("manager-modal-content");
 
-    document.getElementById("manager-search").value = "";
+    (document.getElementById("manager-search") as HTMLInputElement).value = "";
     FarmingRenderer.renderModalList(this.weapons, this.statusMap);
     this.updateFarmingPlan();
 
@@ -444,7 +454,7 @@ class CalcApp {
 
   renderDrawerContent() {
     if (!this.farmingPlans || this.farmingPlans.length === 0) {
-      FarmingRenderer.renderDrawer(null);
+      FarmingRenderer.renderDrawer(null, 0, 0, null);
       return;
     }
     const plan = this.farmingPlans[this.currentPlanIndex];

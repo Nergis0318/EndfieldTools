@@ -1,13 +1,15 @@
-// src/main-todo.js
+// src/main-todo.ts
 import Sortable from "sortablejs";
-import { APP_CONFIG } from "./constants/AppConfig.js";
-import { StorageUtils } from "./utils/StorageUtils.js";
-import { DateUtils } from "./utils/CommonUtils.js";
-import { DataService } from "./services/DataService.js";
-import { TaskLogic } from "./domain/TaskLogic.js";
-import { TaskRenderer } from "./ui/TaskRenderer.js";
+import { APP_CONFIG } from "./constants/AppConfig.ts";
+import { StorageUtils } from "./utils/StorageUtils.ts";
+import { DateUtils } from "./utils/CommonUtils.ts";
+import { DataService } from "./services/DataService.ts";
+import { TaskLogic } from "./domain/TaskLogic.ts";
+import { TaskRenderer } from "./ui/TaskRenderer.ts";
 
 class TodoApp {
+  [key: string]: any;
+
   constructor() {
     this.tasks = [];
     this.renderer = new TaskRenderer();
@@ -31,7 +33,7 @@ class TodoApp {
 
   async init() {
     try {
-      const rawTasks = await DataService.loadTasks();
+      const rawTasks = (await DataService.loadTasks()) as any[];
       const config = await DataService.loadConfig();
 
       // 데이터 전처리
@@ -131,7 +133,9 @@ class TodoApp {
 
   saveOrder() {
     const items = document.querySelectorAll(".task-item");
-    const newOrder = Array.from(items).map((i) => i.dataset.id);
+    const newOrder = Array.from(items).map(
+      (i) => (i as HTMLElement).dataset.id,
+    );
 
     // 현재 탭의 순서 업데이트
     this.state.order[this.currentTab] = newOrder;

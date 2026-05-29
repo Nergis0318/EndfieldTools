@@ -1,5 +1,5 @@
-// src/services/DataService.js
-import { APP_CONFIG } from "../constants/AppConfig.js";
+// src/services/DataService.ts
+import { APP_CONFIG } from "../constants/AppConfig.ts";
 
 export class DataService {
   /**
@@ -7,7 +7,7 @@ export class DataService {
    * @param {string} path - JSON 파일 경로
    * @returns {Promise<any>} 파싱된 데이터
    */
-  static async fetchJson(path) {
+  static async fetchJson(path: string): Promise<any> {
     try {
       const response = await fetch(path);
       if (!response.ok) throw new Error(`Failed to load ${path}`);

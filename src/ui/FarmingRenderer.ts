@@ -1,5 +1,5 @@
-// src/ui/FarmingRenderer.js
-import { APP_CONFIG } from "../constants/AppConfig.js";
+// src/ui/FarmingRenderer.ts
+import { APP_CONFIG } from "../constants/AppConfig.ts";
 
 export class FarmingRenderer {
   static renderModalList(weapons, statusMap) {

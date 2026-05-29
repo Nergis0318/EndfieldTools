@@ -1,5 +1,7 @@
-// src/ui/TaskRenderer.js
+// src/ui/TaskRenderer.ts
 export class TaskRenderer {
+  [key: string]: any;
+
   constructor() {
     this.listContainer = document.getElementById("task-list");
     this.progressBar = document.getElementById("total-progress-bar");

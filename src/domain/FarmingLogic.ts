@@ -1,5 +1,5 @@
-// src/domain/FarmingLogic.js
-import { APP_CONFIG } from "../constants/AppConfig.js";
+// src/domain/FarmingLogic.ts
+import { APP_CONFIG } from "../constants/AppConfig.ts";
 
 export class FarmingLogic {
   static filterWeapons(weapons, activeTags, searchQuery) {
@@ -28,12 +28,12 @@ export class FarmingLogic {
     );
 
     // 1. 장소별 데이터 집계
-    const locMap = {};
+    const locMap: Record<string, any> = {};
     targetWeapons.forEach((w) => {
       if (!w.location || w.location === "정보 없음") return;
       const locs = w.location.split(",").map((s) => s.trim());
       const weight = w.weight || 1;
-      const isTarget = w.isTarget; // main-calc.js에서 넘어온 속성
+      const isTarget = w.isTarget; // main-calc.ts에서 넘어온 속성
 
       locs.forEach((loc) => {
         if (!locMap[loc]) {

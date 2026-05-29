@@ -1,4 +1,4 @@
-// src/utils/StorageUtils.js
+// src/utils/StorageUtils.ts
 
 export class StorageUtils {
   /**
